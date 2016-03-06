@@ -1,1 +1,1 @@
-# mbs-dashboard
+Sample BI dashboard for Federal Reserve's MBS market activities
