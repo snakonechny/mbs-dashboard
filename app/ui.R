@@ -18,12 +18,12 @@ dashboardPage(
       checkboxGroupInput('coupon', label = 'Select coupon values:', choices = levels(master.data$coupon), selected = levels(master.data$coupon)[1]),
       
       conditionalPanel("input.sidebarmenu == 'graphical'",
-      checkboxInput('smoother', label = 'Show moving average values:', value = FALSE)),
+      checkboxInput('smoother', label = 'Show moving average values:', value = FALSE),
       
       conditionalPanel(
         condition = 'input.smoother == true',
         sliderInput('smootherScale', 'Select moving average days:', min = 1, max = 30, value = 1)
-      )
+      ))
     )
   ),
   

@@ -5,21 +5,23 @@ library(xts)
 library(dygraphs)
 library(DT)
 
-master.data <- read.csv('master-data.csv', header = T)
-
-#format the date correctly
-master.data$date <- as.Date(master.data$date, format = '%Y-%m-%d')
-
-#remove commmas from the columns that are now read as factors
-
-master.data$trades.vol <- gsub(',', '', master.data$trades.vol)
-master.data$trades.vol <- as.numeric(master.data$trades.vol)
-
-master.data$trades.num <- as.numeric(master.data$trades.num)
 
 
 
 function(input, output) {
+  
+  master.data <- read.csv('master-data.csv', header = T)
+  
+  #format the date correctly
+  master.data$date <- as.Date(master.data$date, format = '%Y-%m-%d')
+  
+  #remove commmas from the columns that are now read as factors
+  
+  master.data$trades.vol <- gsub(',', '', master.data$trades.vol)
+  master.data$trades.vol <- as.numeric(master.data$trades.vol)
+  
+  master.data$trades.num <- as.numeric(master.data$trades.num)
+  
   
     output$avgPrice.graph <- renderDygraph({
       
